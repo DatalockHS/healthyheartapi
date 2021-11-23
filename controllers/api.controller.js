@@ -30,6 +30,5 @@ function authenticateDeveloper(req,res){
         });
 
 }
-authenticateDeveloper()
 
-module.exports = {addDeveloper}
+module.exports = {addDeveloper, authenticateDeveloper}
