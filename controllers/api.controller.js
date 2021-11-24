@@ -15,17 +15,17 @@ function addDeveloper(req,res){
         });
 }
 
-function authenticateDeveloper(req,res){
-    let token = req.params.token
+function authenticateDeveloper(req,res,next){
+    let token = req.query.token
     firebase.signInWithCustomToken(firebase.getAuth(),token)
         .then((userCredential) => {
             let user = userCredential.user;
-            console.log("yes")
+            return next()
         })
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
-            console.log("no");
+            res.redirect("/home")
             // ...
         });
 

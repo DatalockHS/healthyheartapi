@@ -1,14 +1,15 @@
 const berries = require("../controllers/berries.controller");
+const secure = require("../controllers/api.controller").authenticateDeveloper;
 
 module.exports = app => {
 
     const router = require("express").Router();
 
 
-    router.get("/",berries.fetchAll);
+    router.get("/",secure,berries.fetchAll);
 
-    router.get("/:id", berries.fetchOne);
+    router.get("/:id",secure,berries.fetchOne);
 
 
-    app.use("/food/berries", router);
+    app.use("/food/berries",router);
 }

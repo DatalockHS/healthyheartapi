@@ -1,13 +1,13 @@
 const fish = require("../controllers/fish.controller");
-
+const secure = require("../controllers/api.controller").authenticateDeveloper;
 module.exports = app => {
 
     const router = require("express").Router();
 
 
-    router.get("/",fish.fetchAll);
+    router.get("/",secure,fish.fetchAll);
 
-    router.get("/:id", fish.fetchOne);
+    router.get("/:id",secure, fish.fetchOne);
 
 
     app.use("/food/fish", router);
