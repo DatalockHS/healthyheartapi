@@ -3,10 +3,12 @@ const firebase = require("../config/firebase.config");
 const developerKeyGenerator = require("random-key");
 
 function addDeveloper(req,res){
-    const uid = 'some-uid';
-
+    const uid = {
+        name:"Mason Worthen",
+        email:"Mason.Worthen@msj.edu"
+    }
     firebase.admin.auth()
-        .createCustomToken(uid)
+        .createCustomToken(JSON.stringify((uid)))
         .then((customToken) => {
             res.send(customToken);
         })
@@ -20,12 +22,12 @@ function authenticateDeveloper(req,res,next){
     firebase.signInWithCustomToken(firebase.getAuth(),token)
         .then((userCredential) => {
             let user = userCredential.user;
-            return next()
+
         })
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
-            res.redirect("/home")
+
             // ...
         });
 
