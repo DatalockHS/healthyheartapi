@@ -9,6 +9,9 @@ module.exports = app => {
     router.get("/home",function (req,res){
         res.render('index',{})
     });
+    router.get("/developer",function (req,res){
+        res.render('developer',{})
+    });
 
     router.post('/developer',api.addDeveloper)
 
