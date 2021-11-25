@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Heart Healthy API | HHAPI</title>
+    <title>HealthyHeart | HHAPI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 <body class="bg-dark">
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="healthyheart.png" style="border-radius: 100px; width: 50px; height:50px;"/> H.H.A.P.I</a>
+        <a class="navbar-brand" href="#"><img src="healthyheart.png" style="border-radius: 100px; width: 50px; height:50px;"/> HealthyHeartAPI</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,6 +22,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Docs</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -29,6 +32,156 @@
 <div class="container-fluid p-5 bg-danger text-white text-center">
 
 </div>
+<div class="container-fluid p-5 bg-dark text-white text-center">
+<h2>Welcome to HealthyHeart API</h2>
+
+    <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Request Data HHAPI</label><br/>
+        <span> https://healthyheart.dennisiscool.club/<input type="email" class="form-control" id="email" placeholder="/food or /food/berries or food/berries/0" name="email"></span>
+    </div>
+
+</div>
+<div class="container">
+    <pre class="text-white" style="height: 300px; overflow-y: scroll;">
+        {
+	"foods": {
+		"berries": [{
+			"benefits": ["reduce inflammation and oxidative stress, blueberries can protect against the artery hardening that raises the risk of heart attack and strokes.\"", "anthocyanins are at play. These phytochemicals improve the function of the endothelial cells, which line blood vessels and help blood flow and the regulation of blood pressure. Researchers even think blueberries may prevent hypertension altogether. While there are several foods you should avoid if you have high blood pressure, blueberries are not one of them."],
+			"description": "perennial flowering plants with blue or purple berries.",
+			"name": "blueberries",
+			"nutrition": {
+				"calories": 16,
+				"carbohydrates": 4,
+				"fats": 0.1,
+				"fiber": 0.7,
+				"protein": 0.2,
+				"sugars": 3,
+				"weight": 28
+			}
+		}, {
+			"name": "raspberries"
+		}, {
+			"name": "strawberries"
+		}, {
+			"name": "lingonberries"
+		}, {
+			"name": "eldeberries"
+		}, {
+			"name": "cranberries"
+		}],
+		"fish": [{
+			"name": "salmon"
+		}, {
+			"name": "herring"
+		}, {
+			"name": "mackrel"
+		}, {
+			"name": "anchovies"
+		}, {
+			"name": "sardines"
+		}],
+		"greens": [{
+			"name": "lettuce"
+		}, {
+			"name": "kale"
+		}, {
+			"name": "spinach"
+		}, {
+			"name": "cabbage"
+		}, {
+			"name": "mustard greens"
+		}],
+		"nuts": [{
+			"name": "peanuts"
+		}, {
+			"name": "pistachios"
+		}, {
+			"name": "almonds"
+		}, {
+			"name": "walnuts"
+		}, {
+			"name": "hazelnuts"
+		}],
+		"oils": [{
+			"name": "extra virgin olive oil"
+		}, {
+			"name": "almond oil"
+		}, {
+			"name": "sunflower oil"
+		}, {
+			"name": "soybean oil"
+		}],
+		"seeds": [{
+			"name": "chia seeds"
+		}, {
+			"name": "flaxseeds"
+		}, {
+			"name": "hemp seeds"
+		}, {
+			"name": "sesame seeds"
+		}]
+	}
+}
+    </pre>
+</div>
+<br/>
+<br/>
+<div class="container text-white">
+    <h2>Introduction</h2>
+     <p>Provide a resources for developers to create applications to help people improve their heart health and their well being.
+         <p>This will provide information of different types of food in different category that can contribute to living a healthy lifestyle
+
+    <h2> Getting Started</h2>
+    <p> First in order to use the API you must request a <a href="#">developer key </a></p>
+</div>
+
+
+
+<div class="container text-white">
+    <h2>Endpoints</h2>
+    <pre>
+
+/food/berries?token=[token]    /food/berries/:id?token=[token]
+/food/nuts?token=[token]       /food/nuts/:id?token=[token]
+/food/fish?token=[token]       /food/fish/:id?token=[token]
+/food/oils?token=[token]       /food/oils/:id?token=[token]
+/food/greens?token=[token]     /food/greens/:id?token=[token]
+/food/seeds?token=[token]      /food/seed/:id?token=[token]
+                                       /food?token=[token]
+    </pre>
+
+
+    <h2>Authentication</h2>
+    Every endpoint must contain the token to validate your request
+    <ul>
+        <li>?token=[your token] * don't include the square brackets</li>
+    </ul>
+
+    <h2>Encodings</h2>
+    <ul>
+        <li>JSON</li>
+    </ul>
+
+    <h2>Technologies</h2>
+    <ul>
+        <li>Bootstrap 5</li>
+        <li>Firebase</li>
+        <li>Digital Ocean</li>
+        <li>jQuery</li>
+        <li>Node JS</li>
+        <li>Express</li>
+    </ul>
+</div>
+<footer class="bg-light text-center text-lg-start text-white">
+    <!-- Copyright -->
+    <div class="text-center p-3 bg-dark">
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">Datalock HS</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+
 
 
 
