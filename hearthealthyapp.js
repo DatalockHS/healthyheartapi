@@ -10,9 +10,11 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-//const corsOption = {
-//    origin:""
-//}
+let corsOptions = {
+    origin: 'http://localhost:3000',
+}
+
+app.use(cors(corsOptions));
 
 if(app.get("env") === "production"){
     session.cookie.secure = true;

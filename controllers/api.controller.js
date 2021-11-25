@@ -11,7 +11,7 @@ function addDeveloper(req,res){
             email: email,
             name:name,
         });
-        res.send({key:developerKey})
+        res.render("developer",{key:developerKey})
 }
 
 function authenticateDeveloper(req,res,next){

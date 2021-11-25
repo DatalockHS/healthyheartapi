@@ -4,13 +4,14 @@ module.exports = app => {
 
 
     router.get("/",function (req,res){
-        res.redirect('/home')
+        res.render('index',{})
+
     });
     router.get("/home",function (req,res){
-        res.render('index',{})
+        res.redirect('/')
     });
     router.get("/developer",function (req,res){
-        res.render('developer',{})
+        res.render('developer',{key:"***"})
     });
 
     router.post('/developer',api.addDeveloper)

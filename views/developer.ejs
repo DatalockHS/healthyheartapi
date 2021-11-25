@@ -13,7 +13,7 @@
 <div class="container">
     <br/>
     <p> Request a developer key for healthyheart api</p>
-    <form action="/developer" method="POST">
+    <form method="POST" action="/developer">
         <div class="mb-3 mt-3">
             <label for="name" class="form-label" required>Name:</label>
             <input type="text" class="form-control" id="name" placeholder="enter name" name="name">
@@ -23,12 +23,12 @@
             <input type="text" class="form-control" id="email" placeholder="enter email address" name="email">
         </div>
 
-        <button type="submit" class="btn btn-primary">Request key</button>
+        <button id="requestButton" class="btn btn-primary">Request key</button>
         <br/>
     </form>
     <hr/>
     <pre> Your developer key will appear here:</pre>
-    <input type="text" class="bg-white text-danger" id="key" value="eeeeeee">
+    <input type="text" class="bg-white text-danger" id="key" value=<%=key %>>
     <br/>
     <br/>
     <button class="btn btn-danger" id="clipboard">Copy</button>
