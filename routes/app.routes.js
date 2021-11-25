@@ -11,6 +11,7 @@ module.exports = app => {
         res.redirect('/')
     });
     router.get("/developer",function (req,res){
+        req.session.site = true
         res.render('developer',{key:"***"})
     });
 

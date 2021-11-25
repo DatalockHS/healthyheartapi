@@ -3,15 +3,19 @@ const firebase = require("../config/firebase.config");
 const developerKeyGenerator = require("random-key");
 
 function addDeveloper(req,res){
+    if(req.session.site==true) {
         let developerKey = developerKeyGenerator.generate()
-        let name  = req.body.name;
+        let name = req.body.name;
         let email = req.body.email;
         const db = firebase.getDatabase(firebase.firebaseApp);
-        firebase.set(firebase.ref(db, 'users/'+developerKey), {
+        firebase.set(firebase.ref(db, 'users/' + developerKey), {
             email: email,
-            name:name,
+            name: name,
         });
-        res.render("developer",{key:developerKey})
+        res.render("developer", {key: developerKey})
+    }else{
+        res.redirect("/")
+    }
 }
 
 function authenticateDeveloper(req,res,next){
