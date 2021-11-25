@@ -8,7 +8,7 @@ function addDeveloper(req,res){
         let email = req.body.email.trim();
 
         if(name.length > 100 || name.length >100 || name =="" || email =="" || email.includes('@')===false){
-            res.send("information enter is invalid plz try again")
+            res.render("developer", {key: "information enter is invalid plz try again"})
         }
         let developerKey = developerKeyGenerator.generate()
 
