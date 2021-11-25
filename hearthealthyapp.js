@@ -2,16 +2,16 @@ const express = require('express');
 const session = require('express-session');
 const cors = require("cors");
 const app = express();
-
+require("dotenv").config()
 
 app.use(session({
-    secret: 'blackstudentunion',cookie:{},resave:false,saveUninitialized: false
+    secret: process.env.SECRET,cookie:{},resave:false,saveUninitialized: false
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 let corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://healthyheart.dennisiscool.club/',
 }
 
 app.use(cors(corsOptions));

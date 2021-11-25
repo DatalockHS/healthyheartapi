@@ -3,7 +3,7 @@ $(document).ready(function(){
     $("#requestButton").click(function() {
         $.ajax({
             type: "GET",
-            url: "http://localhost:3000/" + $("#url").val(),
+            url: "http://healthyheart.dennisiscool.club/" + $("#url").val(),
             data: {
                 token: "2TO3c3rhn3rS5U2G"
             },
