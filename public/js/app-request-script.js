@@ -5,7 +5,7 @@ $(document).ready(function(){
             type: "GET",
             url: "http://healthyheart.dennisiscool.club/" + $("#url").val(),
             data: {
-                token: "2TO3c3rhn3rS5U2G"
+                token: ""
             },
             dataType: 'json',
         }).then(function (data){
