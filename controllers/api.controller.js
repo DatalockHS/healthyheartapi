@@ -4,9 +4,14 @@ const developerKeyGenerator = require("random-key");
 
 function addDeveloper(req,res){
     if(req.session.site==true) {
+        let name = req.body.name.trim();
+        let email = req.body.email.trim();
+
+        if(name.length > 100 || name.length >100 || name =="" || email =="" || email.includes('@')===false){
+            res.send("information enter is invalid plz try again")
+        }
         let developerKey = developerKeyGenerator.generate()
-        let name = req.body.name;
-        let email = req.body.email;
+
         const db = firebase.getDatabase(firebase.firebaseApp);
         firebase.set(firebase.ref(db, 'users/' + developerKey), {
             email: email,
