@@ -6,10 +6,10 @@ function fetchAll(req,res){
     firebase.get(firebase.child(referenceCount, '/food/seeds')).then((snapshot) => {
         if (snapshot.exists()) {
             let data = snapshot.val();
-            res.send({seeds:data})
-            res.end();
+            res.status(200).send({seeds:data})
+
         } else {
-            res.end();
+            res.status(403).send({})
         }
     }).catch((error) => {
         console.error(error);
@@ -24,10 +24,10 @@ function  fetchOne(req,res){
         if (snapshot.exists()) {
             let data = snapshot.val();
             res.setHeader('Content-Type', 'application/json');
-            res.send({berry:data[req.params.id]})
+            res.status(200).send({berry:data[req.params.id]})
         } else {
             res.setHeader('Content-Type', 'application/json');
-            res.end({});
+            res.status(403).send({});
         }
     }).catch((error) => {
         console.error(error);

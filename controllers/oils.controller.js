@@ -7,16 +7,15 @@ function fetchAll(req,res){
         if (snapshot.exists()) {
             let data = snapshot.val();
             res.setHeader('Content-Type', 'application/json');
-            res.send({oils:data})
+            res.status(200).send({oils:data})
         } else {
             res.setHeader('Content-Type', 'application/json');
-            res.end({});
+            res.status(403).send({});
         }
     }).catch((error) => {
         console.error(error);
     });
 }
-
 
 function  fetchOne(req,res){
     const db = firebase.getDatabase(firebase.firebaseApp)
@@ -25,10 +24,10 @@ function  fetchOne(req,res){
         if (snapshot.exists()) {
             let data = snapshot.val();
             res.setHeader('Content-Type', 'application/json');
-            res.send({oil:data[req.params.id]})
+            res.status(200).send({oil:data[req.params.id]})
         } else {
             res.setHeader('Content-Type', 'application/json');
-            res.end({});
+            res.status(200).send({});
         }
     }).catch((error) => {
         console.error(error);

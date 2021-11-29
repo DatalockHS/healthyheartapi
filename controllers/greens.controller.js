@@ -6,16 +6,14 @@ function fetchAll(req,res){
     firebase.get(firebase.child(referenceCount, '/food/greens')).then((snapshot) => {
         if (snapshot.exists()) {
             let data = snapshot.val();
-            res.send({greens:data})
-            res.end();
+            res.status(200).send({greens:data})
         } else {
-            res.end();
+            res.status(403).send({});
         }
     }).catch((error) => {
         console.error(error);
     });
 }
-
 
 function  fetchOne(req,res){
     const db = firebase.getDatabase(firebase.firebaseApp)
@@ -23,10 +21,9 @@ function  fetchOne(req,res){
     firebase.get(firebase.child(referenceCount, '/food/greens')).then((snapshot) => {
         if (snapshot.exists()) {
             let data = snapshot.val();
-            res.send({green:data[req.params.id]})
-            res.end();
+            res.status(200).send({green:data[req.params.id]})
         } else {
-            res.end();
+            res.status(403).send({});
         }
     }).catch((error) => {
         console.error(error);

@@ -7,10 +7,10 @@ function fetchAll(req,res){
         if (snapshot.exists()) {
             let data = snapshot.val();
             res.setHeader('Content-Type', 'application/json');
-            res.send({berries:data})
+            res.status(200).send({berries:data})
         } else {
             res.setHeader('Content-Type', 'application/json');
-            res.end({});
+            res.status(403).send({});
         }
     }).catch((error) => {
         console.error(error);
@@ -25,10 +25,10 @@ function  fetchOne(req,res){
         if (snapshot.exists()) {
             let data = snapshot.val();
             res.setHeader('Content-Type', 'application/json');
-            res.send({berry:data[req.params.id]})
+            res.status(200).send({berry:data[req.params.id]})
         } else {
             res.setHeader('Content-Type', 'application/json');
-            res.end({});
+            res.status(403).send({});
         }
     }).catch((error) => {
         console.error(error);

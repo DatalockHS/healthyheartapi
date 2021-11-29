@@ -7,11 +7,11 @@ function fetchAll(req,res){
         if (snapshot.exists()) {
             let data = snapshot.val();
             res.setHeader('Content-Type', 'application/json');
-            res.send({foods:data})
+            res.status(200).send({foods:data})
 
         } else {
             res.setHeader('Content-Type', 'application/json');
-            res.end({});
+            res.status(403).send({});
         }
     }).catch((error) => {
         console.error(error);
