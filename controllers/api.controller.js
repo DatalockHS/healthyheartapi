@@ -26,6 +26,10 @@ function addDeveloper(req,res){
 function authenticateDeveloper(req,res,next){
     const db = firebase.getDatabase(firebase.firebaseApp)
     const referenceCount = firebase.ref(db);
+     if(req.query.token.trim()==""){
+        res.redirect("/");
+        return;
+    }
     firebase.get(firebase.child(referenceCount, '/users/'+req.query.token)).then((snapshot) => {
         if (snapshot.exists()) {
             let data = snapshot.val();
